@@ -1,4 +1,4 @@
-function Cat(name) {
+function Animal(name) {
     var foodAmount = 50;
     function formatFoodAmount() {
         return foodAmount + ' гр.';
@@ -16,18 +16,18 @@ function Cat(name) {
     };
 }
 function Cat(name) {
-	Animal.call(this);
-	var animalFeed = this.feed;
-	this.feed = function () {
-		animalFeed.call(this);
-		console.log('Кот доволен ^_^');
-		return this;
-	}
+    Animal.call(this);
+    var animalFeed = this.feed;
+    this.animalfeed = function () {
+        animalFeed.call(this);
+        console.log('Кот доволен ^_^');
+        return this;
+    }
 
-	this.stroke = function() {
-		console.log('Гладим кота.');
-		return this;
-	}
+    this.stroke = function() {
+        console.log('Гладим кота.');
+        return this;
+    }
 }
 
 var cat = new Cat('Solli');
