@@ -8,13 +8,13 @@ Animal.prototype._formatFoodAmount = function () {
     return this._foodAmount + ' гр.';
 }
 Animal.prototype.dailyNorm = function (amount) {
-     if (!arguments.length) return _formatFoodAmount();
+     if (!arguments.length) return formatFoodAmount();
 
         if (amount < 50 || amount > 500) {
             return 'Недопустимое количество корма.';
         }
-        _foodAmount = amount;
-};
+        foodAmount = amount;
+    };
 Animal.prototype.feed = function () {
     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
 };
@@ -73,7 +73,7 @@ clonedObj.object.object2.array2[1].name = 'Vasya';
       clonedObj.array.push(2);
 
       console.log(initialObj);
-      console.log(deepCloneObj);
+      console.log(clonedObj);
 
 
 //3 задание 
@@ -96,7 +96,7 @@ var object = {
         alert('Hello');
     }
 };
-var anotherOneObject = {
+var anotherObject = {
     number: 30,
     boolean: true,
     undefined: undefined,
@@ -113,29 +113,24 @@ var anotherOneObject = {
         alert('Hello');
     }
 };
+
 function isTheSame(obj1, obj2) {
     if (obj1 !== null && obj2 !== null && Object.keys(obj1).length != Object.keys(obj2).length) {
         return false;
     }
 
-    for (var k in obj1) {
+    for (var i in obj1) {
         if (obj1.hasOwnProperty(i) !== obj2.hasOwnProperty(i)) {
             return false;
         }
-        if (typeof (obj1[i]) === 'object') {
-            if (!isTheSame(obj1[i], obj2[i])) {
-                return false;
-            }
-        } else if (typeof obj1[i] === 'function') {
+         else (typeof obj1[i] === 'function') {
             if (obj1[i].toString() != obj2[i].toString()) {
                 return false;
             }
-        } else if (obj1[i] != obj2[i]) {
-            return false;
-        }
-
+        } 
     }
-
+    else{
     return true;
+    }
 }
-isTheSame(object,anotherOneObject);
+isTheSame(object,anotherObject);
