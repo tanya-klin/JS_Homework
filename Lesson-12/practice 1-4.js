@@ -1,8 +1,8 @@
 // 1
 
-function obj(i) {
-    return i.map(function (i) {
-        return { name:i };
+function createObj(names) {
+    return names.map(function (names) {
+        return { name:names };
     });
 }
 
@@ -36,7 +36,7 @@ function howMuchVowel(string) {
     return countVowels;
 }
 
-getvowelsAmount('Эти привычки могут привести к неожиданному поведению программы.');
+howMuchVowel('Эти привычки могут привести к неожиданному поведению программы.');
 
 //4
 
