@@ -10,7 +10,8 @@ second.innerHTML = 'hello,world! <a href="https://yandex.by/" >che</a> <a href="
 container.appendChild(first);
 container.appendChild(second);
 
-var links1 = first.querySelectorAll('a');
+var links1 = first.children;
+links1 = Array.prototype.slice.call(links1);
 
 button.onclick = function() {
     links1.forEach(function(item, i) {
@@ -18,7 +19,8 @@ button.onclick = function() {
     });
 }
 
-var links2 = second.querySelectorAll('a');
+var links2 = second.children;
+links2 = Array.prototype.slice.call(links2);
 
 links2.forEach(function(item, j) {
     links2[j].addEventListener('click', function() {

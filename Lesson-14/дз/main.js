@@ -5,9 +5,9 @@ var td =document.getElementsByTagName('td');
 button.addEventListener('click',addRow);
 
 function addRow(evt){
-var newRow = document.createElement('tr');
-newRow.innerHTML='<tr><td class="for-input"></td><td class="for-input"></td><td class="for-input"></td></tr>';
-table.prepend(newRow);
+	var newRow = document.createElement('tr');
+		newRow.innerHTML='<tr><td class="for-input"></td><td class="for-input"></td><td class="for-input"></td></tr>';
+		table.prepend(newRow);
 }
 
 table.addEventListener('click',addInput);
@@ -15,7 +15,7 @@ table.addEventListener('click',addInput);
 function addInput(evnt) {
 	var target = event.target;
 
-	if (target.className = 'for-input'){
+	if (target.className = 'for-input' && target.id !='buttons'){
 		var input = document.createElement('input');
 		input.value = target.innerHTML;
 		target.innerHTML = '';
@@ -27,18 +27,8 @@ function addInput(evnt) {
 				table.addEventListener('click', addInput);
 		});
 		table.removeEventListener('click', addInput);
-
-		input.addEventListener('keydown',pressEnter);
-
-		function pressEnter(evnt) {
-			if (evnt.keyCode === 13) {
-				target.innerHTML = this.value;
-				table.addEventListener('click', addInput);
-			}
-			table.removeEventListener('click', addInput);
-		}
 	}
-	else if(target.className != 'for-input'){
+	else if(target.className != 'for-input' && target.id != 'buttons'){
 		var context = target.innerHTML;
 		target.innerHTML = '';
 		var input = document.createElement('input');
